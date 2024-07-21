@@ -8,12 +8,14 @@ export class UsersService {
     {
       userId: 1,
       email: 'john@test.com',
+      role:"user",
       password:
         'e7828c0cc10539d2.a185d006dfc686c1b073e7aebd7495bc20cd5666b9e7f58e5c04d3e1a3a867cb',
     },
     {
       userId: 2,
       email: 'maria@test.com',
+      role:"admin",
       password:
         'e7828c0cc10539d2.a185d006dfc686c1b073e7aebd7495bc20cd5666b9e7f58e5c04d3e1a3a867cb',
     },
@@ -21,5 +23,8 @@ export class UsersService {
 
   async findOne(email: string): Promise<User | undefined> {
     return this.users.find((user) => user.email === email);
+  }
+  async findOneById(id: number): Promise<User | undefined> {
+    return this.users.find((user) => user.userId === id);
   }
 }
